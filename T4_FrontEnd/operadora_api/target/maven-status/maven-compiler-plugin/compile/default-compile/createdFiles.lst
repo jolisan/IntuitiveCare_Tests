@@ -1,0 +1,5 @@
+com\intuitivecare\api\model\Operadora.class
+com\intuitivecare\api\OperadoraApiApplication.class
+com\intuitivecare\api\model\Arquivo.class
+com\intuitivecare\api\controller\OperadoraController.class
+com\intuitivecare\api\exceptions\ApplicationExceptionHandler.class

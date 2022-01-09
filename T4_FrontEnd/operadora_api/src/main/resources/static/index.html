@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Busca de operadoras - IntuitiveCare</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  	<link rel="stylesheet" href="utils/sweetalert2.min.css">
+  </head>
+  <body>
+    <div id="app" style="text-align: center">
+      <div style="margin-top: 50px;">
+        <h1>Pesquisa de Operadoras</h1>
+        <img src="https://static.wixstatic.com/media/b91e09_95ec298e6ed645d197af640983985c6c~mv2.png/v1/fill/w_234,h_56,al_c,q_85,usm_0.66_1.00_0.01/logo_ic_v5_20210604_a4_logo_hQ.webp" style="margin-top: 25px; margin-bottom: 50px;" alt="IntuitiveCare Logo">
+      </div>
+      <ul>
+        <div class="row d-flex justify-content-center">
+          <input type="text" class="form-control" v-model="texto" type="text" placeholder="Insira um termo para pesquisar" style="width:300px;">
+          <b-button @click="pesquisar(texto)" class="btn btn-dark">Pesquisar</b-button>
+        </div>
+      </ul>
+      <div v-if="operadoras">
+        <div v-if="operadoras.length>0">
+          <h3>({{operadoras.length}}) Operadoras encontradas para o termo de pesquisa: "{{texto}}"</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">REGISTRO ANS</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">RAZAO SOCIAL</th>
+                <th scope="col">NOME FANTASIA</th>
+                <th scope="col">MODALIDADE</th>
+                <th scope="col">LOGRADOURO</th>
+                <!-- <th scope="col">NUMERO</th> -->
+                <!-- <th scope="col">COMPLEMENTO</th> -->
+                <!-- <th scope="col">BAIRRO</th> -->
+                <th scope="col">CIDADE</th>
+                <th scope="col">UF</th>
+                <th scope="col">CEP</th>
+                <th scope="col">DDD</th>
+                <th scope="col">TELEFONE</th>
+                <!-- <th scope="col">FAX</th> -->
+                <th scope="col">ENDERECO ELETRONICO</th>
+                <!-- <th scope="col">REPRESENTANTE</th> -->
+                <!-- <th scope="col">CARGO REPRESENTANTE</th> -->
+                <th scope="col">DATA REGISTRO ANS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="op in operadoras">
+                <td class="col-md-1">{{ op.registroANS }}</td>
+                <td class="col-md-1">{{ op.cnpj }}</td>
+                <td class="col-md-3">{{ op.razaoSocial }}</td>
+                <td class="col-md-3">{{ op.nomeFantasia }}</td>
+                <td class="col-md-1">{{ op.modalidade }}</td>
+                <td class="col-md-1">{{ op.logradouro }}</td>
+                <!-- <td class="col-md-1">{{ op.numero }}</td> -->
+                <!-- <td class="col-md-1">{{ op.complemento }}</td> -->
+               	<!-- <td class="col-md-1">{{ op.bairro }}</td> -->
+                <td class="col-md-1">{{ op.cidade }}</td>
+                <td class="col-md-1">{{ op.uf }}</td>
+                <td class="col-md-1">{{ op.cep }}</td>
+                <td class="col-md-1">{{ op.ddd }}</td>
+                <td class="col-md-1">{{ op.telefone }}</td>
+                <!-- <td class="col-md-1">{{ op.fax }}</td> -->
+                <td class="col-md-1">{{ op.enderecoEletronico }}</td>
+                <!-- <td class="col-md-1">{{ op.representante }}</td> -->
+                <!-- <td class="col-md-1">{{ op.cargoRepresentante }}</td> -->
+                <td class="col-md-1">{{ op.dataRegistroANS }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div v-if="operadoras.length == 0 && texto != null">
+          <h3>Sem resultados encontrados para o termo de pesquisa: "{{texto}}"</h3>
+        </div>
+      </div>
+    </div>
+    <script>
+      const apiURL = "http://localhost:8080/api/operadora/search?texto=";
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            operadoras: [],
+          }
+        },
+        methods: {
+          pesquisar(texto) {
+              fetch(apiURL+texto)
+            .then(response => {
+              return response.json();
+            })
+            .then(operadoras => {
+              this.operadoras = operadoras;
+            })
+          }
+        },
+      })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
