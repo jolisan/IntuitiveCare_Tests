@@ -1,5 +1,5 @@
 ## Resumo 📖
-Este projeto consiste na resolução dos testes de nivelamento da empresa [IntuitiveCare](https://www.intuitivecare.com/) testes desenhados em função de tarefas realizadas no dia a dia da empresa, e têm como objetivo avaliar: Conhecimentos básicos de programação e organização do código.
+Este projeto consiste na resolução dos testes de nivelamento da empresa [IntuitiveCare](https://www.intuitivecare.com/), onde os testes foram desenhados em função de tarefas realizadas no dia a dia da empresa, e têm como objetivo avaliar: Conhecimentos básicos de programação e organização do código.
 
 | Testes | Nome da Pasta | 
 | ------- | --- |
@@ -14,12 +14,12 @@ Este projeto consiste na resolução dos testes de nivelamento da empresa [Intui
 | Teste 1|
 | ------- |
 | Java 11 / JDK 11 |
-| Jsoup |
+| Jsoup 1.14.3 |
 
 | Teste 2|
 | ------- |
 | Python |
-| Tabula |
+| Tabula / Tabula-py |
 | Pandas |
 | Zipfile |
 
