@@ -30,7 +30,7 @@ Este projeto consiste na resolução dos testes de nivelamento da empresa [Intui
 | Teste 4|
 | ------- |
 | Java 11 / JDK 11 |
-| SpringBoot 2.6.1 [API](https://github.com/jolisan/IntuitiveCare_Tests/tree/main/T4_FrontEnd/operadora_api/src/main/java/com/intuitivecare/api)|
+| SpringBoot 2.6.1 - [(API)](https://github.com/jolisan/IntuitiveCare_Tests/tree/main/T4_FrontEnd/operadora_api/src/main/java/com/intuitivecare/api)|
 | Maven |
-| VueJS [FrontEnd](https://github.com/jolisan/IntuitiveCare_Tests/blob/main/T4_FrontEnd/operadora_api/src/main/resources/static/index.html)|
+| VueJS - [(FrontEnd)](https://github.com/jolisan/IntuitiveCare_Tests/blob/main/T4_FrontEnd/operadora_api/src/main/resources/static/index.html)|
 | Bootstrap |
